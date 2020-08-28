@@ -24,10 +24,10 @@ function showProduct(myProduct) {
     //fill out template
     myCopy.querySelector(".dishname").textContent = myProduct.name;
     myCopy.querySelector(".shortdescription").textContent = myProduct.shortdescription;
-    myCopy.querySelector(".price").textContent = myProduct.price;
-    //append
+    myCopy.querySelector(".price").textContent = `${myProduct.price}kr` ;
+
+//append
     const parentElem = document.querySelector("section#starters");
     parentElem.appendChild(myCopy);
 
 }
-
