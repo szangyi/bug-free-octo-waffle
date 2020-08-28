@@ -1,0 +1,140 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+#topnav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2vw 0 2vw 2vw;
+    background-color: #F22F1D;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Helvetica';
+    font-size: 1.3em;
+    color: #F2EFDC;
+}
+
+#banner {
+    background-image: url(../imgs/banner.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 27vw;
+
+}
+
+body {
+    /*    padding: 2rem;*/
+}
+
+
+main {
+    max-width: none;
+    margin: 0;
+    padding: 2rem;
+    background-color: #F2EFDC;
+}
+
+
+.starters, .maindishes, .desserts, .sideorders, .drinks  {
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+article {
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    padding: 1rem;
+    background-color: white;
+}
+
+article > img {
+    order: -1;
+    align-self: center;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 110px;
+    height: 110px;
+}
+
+h1 {
+    display: block;
+}
+
+article > h2 {
+    margin: 1rem 1rem 0;
+}
+
+article > ul {
+    margin: 0 0 1rem;
+}
+
+article > p {
+    margin: 0.25em 1rem 1rem;
+}
+
+main {
+    font-family: Avenir, Roboto, Helvetica, san-serif;
+    font-size: 80%;
+}
+
+article {
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+article > button {
+    margin-top: auto;
+    /* to push it to the bottom of the box & margin-top: auto takes the available space */
+    background: #F2A341;
+    color: white;
+    padding: 0.3rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.pricewhendiscount {
+    text-decoration: line-through;
+}
+
+.discount {
+    font-size: 1.5em;
+    color: red;
+}
+
+.soldout {
+    filter: grayscale(100%);
+}
+
+.info {
+    order: -2;
+    align-self: center;
+}
+
+.info2 {
+    color: green;
+    font-size: 1.5em;
+    order: -2;
+    align-self: center;
+}
+
+
+/*
+https://labs.jensimmons.com/2017/03-009.html
+view-source:https://labs.jensimmons.com/2017/03-009.html
+https://labs.jensimmons.com/2017/css/03-009.css
+*/
