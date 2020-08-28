@@ -120,12 +120,12 @@ article > button {
     filter: grayscale(100%);
 }
 
-.info {
+.infosoldout {
     order: -2;
     align-self: center;
 }
 
-.info2 {
+.infoveg {
     color: green;
     font-size: 1.5em;
     order: -2;
