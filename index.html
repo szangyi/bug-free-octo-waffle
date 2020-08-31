@@ -25,15 +25,22 @@
 
     </header>
 
+    <div>filters</div>
+    <button id="veggiefilter">Only veggies</button>
+
+
     <main class="productlist">
 
         <section id="starters">
             <h1>Starters</h1>
             <template id="productTemplate">
                 <article class="product">
-                    <h2 class="dishname"></h2>
-                    <p class="shortdescription"></p>
-                    <p class="price"> </p>
+                    <p class="infoveg hidden">vegetarian</p>
+                    <h2 class="data_name"></h2>
+                    <p class="data_shortdescription"></p>
+                    <p class="data_price"></p>
+                    <p class="data_discount"> </p>
+                    <p class="soldout hidden">SOLD OUT</p>
                     <img src="../imgs/small/ringbroed-druer-sm.jpg">
                     <button>ORDER</button>
                 </article>
@@ -42,7 +49,7 @@
         </section>
 
 
-<!--
+        <!--
         <section id="starters">
             <article class="sale-item">
                 <h2>Russian Ringbread</h2>

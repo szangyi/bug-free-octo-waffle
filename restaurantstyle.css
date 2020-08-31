@@ -111,7 +111,7 @@ article > button {
     text-decoration: line-through;
 }
 
-.discount {
+.data_discount {
     font-size: 1.5em;
     color: red;
 }
@@ -132,9 +132,15 @@ article > button {
     align-self: center;
 }
 
+.hidden {
+    visibility: hidden;
+}
 
-/*
-https://labs.jensimmons.com/2017/03-009.html
-view-source:https://labs.jensimmons.com/2017/03-009.html
-https://labs.jensimmons.com/2017/css/03-009.css
-*/
+.vegetarian {
+
+}
+
+button.active {
+    background-color: hotpink;
+}
+
