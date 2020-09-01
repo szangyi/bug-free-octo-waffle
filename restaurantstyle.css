@@ -10,7 +10,7 @@ header {
     padding: 0;
 }
 
-#topnav {
+#nav {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -47,7 +47,7 @@ main {
 }
 
 
-#starters, #maindishes, #desserts, #sideorders, #drinks  {
+section  {
     grid-gap: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
