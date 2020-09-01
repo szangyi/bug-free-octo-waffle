@@ -12,7 +12,7 @@ fetch("https://kea-alt-del.dk/t5/api/productlist")
 //loop through products
 function dataReceived(products) {
     products.forEach(showProduct);
-    products.forEach(showInfo)
+//    products.forEach(showInfo)
 }
 
 //executed once for each product
@@ -29,15 +29,18 @@ function showProduct(myProduct) {
     myCopy.querySelector(".data_price").textContent = `${myProduct.price}kr`;
     //append
     const parentElem = document.querySelector("section#starters");
-    parentElem.appendChild(myCopy);
+
 
     if (!myProduct.discount) {
         //not discount
         console.log("nodiscount");
-        myCopy.querySelector(".data_discount").classList.add("hidden")
+        myCopy.querySelector(".data_discount").classList.toggle("hidden")
     }
 
 
+
+
+    parentElem.appendChild(myCopy);
 }
 
 
