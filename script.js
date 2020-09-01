@@ -1,13 +1,3 @@
-//fetch data
-
-fetch("https://kea-alt-del.dk/t5/api/productlist")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        //        console.log(data)
-        dataReceived(data);
-    })
 
 //loop through products
 function dataReceived(products) {
@@ -44,25 +34,25 @@ function showProduct(myProduct) {
         myCopy.querySelector(".product").classList.add("soldout")
     }
 
-//setup classes for filtering
-//1.find article
-const article = myCopy.querySelector("article")
+    //setup classes for filtering
+    //1.find article
+    const article = myCopy.querySelector("article")
 
-//2.add classes
-if (myProduct.vegetarian) {
-    article.classList.add("vegetarian")
-}
+    //2.add classes
+    if (myProduct.vegetarian) {
+        article.classList.add("vegetarian")
+    }
 
-const veggiefilter = document.querySelector("#veggiefilter");
-veggiefilter.addEventListener("click", veggieFilterClicked);
+    const veggiefilter = document.querySelector("#veggiefilter");
+    veggiefilter.addEventListener("click", veggieFilterClicked);
 
 
-function veggieFilterClicked() {
-    //select all non veggie
-    const articles = document.querySelectorAll("article:not(.vegetarian)");
-    console.log(articles);
-    veggiefilter.classList.toggle("active");
-}
+    function veggieFilterClicked() {
+        //select all non veggie
+        const articles = document.querySelectorAll("article:not(.vegetarian)");
+        console.log(articles);
+        veggiefilter.classList.toggle("active");
+    }
 
 
 
@@ -82,8 +72,19 @@ function init() {
 init();
 
 function categoriesReceived(cats) {
-    //    createNavigation(cats);
+       createNavigation(cats);
     createSections(cats);
+    //fetch data
+
+fetch("https://kea-alt-del.dk/t5/api/productlist")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        //        console.log(data)
+        dataReceived(data);
+    })
+
 }
 
 
@@ -99,24 +100,11 @@ function createSections(categories) {
     })
 }
 
-//function createNavigation(categories) {
-//    categories.forEach(cat => {
-//
-//
-//        const a = document.createElement("a");
-//
-//        text.content = cat;
-//        a.setAttribute("href", `${cat}`);
-//
-//        document.querySelector("#nav").appendChild(a);
-//    })
-//}
-
-
-
-
-
-
-
-
-
+function createNavigation(categories) {
+    categories.forEach(cat => {
+        const a = document.createElement("a");
+        a.textContent = cat;
+        a.setAttribute("href", `#${cat}`);
+        document.querySelector("#nav").appendChild(a);
+    })
+}
