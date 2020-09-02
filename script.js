@@ -108,7 +108,7 @@ function showProduct(myProduct) {
 
 
 
-    myCopy.querySelector("button").addEventListener("click", () => {
+    myCopy.querySelector("article").addEventListener("click", () => {
         fetch(`https://kea-alt-del.dk/t5/api/product?id=` + myProduct.id)
             .then(res => res.json())
             .then(showDetails);
@@ -122,10 +122,22 @@ function showProduct(myProduct) {
 }
 
 function showDetails(data) {
-  modal.querySelector(".modal-name").textContent = data.name;
-  modal.querySelector(".modal-description").textContent = data.longdescription;
-  //  //...
-  modal.classList.remove("hidden");
+
+    const img = modal.querySelector(".modal-image");
+    img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/small/${data.image}-sm.jpg`)
+
+    modal.querySelector(".modal-name").textContent = data.name;
+    modal.querySelector(".modal-description").textContent = data.longdescription;
+    modal.querySelector(".modal-price").textContent = `${data.price}kr`;
+//    modal.querySelector("img").textContent = data.longdescription;
+    //  //...
+
+
+    modal.classList.remove("hidden");
+    //    modal.classList.remove("relaxout");
+    //    modal.classList.add("relaxin");
+
+
 }
 
 
@@ -178,5 +190,13 @@ function createNavigation(categories) {
 const modal = document.querySelector(".modal-background");
 modal.addEventListener("click", () => {
     modal.classList.add("hidden");
-});
+    //    modal.classList.remove("relaxin");
+    //    modal.classList.add("relaxout");
+    //    modal.addEventListener("animationend", hideBackground);
 
+});
+//
+//function hideBackground() {
+//    modal.classList.remove("relaxout");
+//
+//}
