@@ -19,15 +19,20 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 2vw 0 2vw 2vw;
-    background-color: white;
+    background-color: #953733;
 }
 
 a {
     text-decoration: none;
-    font-family: 'Pathway Gothic One';
-    font-size: 1.3em;
-    color: #F2EFDC;
+    font-family: 'Lexend Peta';
+    font-size: 1.2em;
+    color: white;
     text-transform: uppercase;
+    transition: 0.3s;
+}
+
+a:hover {
+   transform: scale(1.3)
 }
 
 #banner {
@@ -43,26 +48,33 @@ body {
 }
 
 
-main {
-    max-width: none;
-    margin: 0;
-    padding: 2rem;
-    background-color: #F2EFDC;
-}
+main {}
 
 
 section {
     grid-gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 article {
     margin: 0;
     display: flex;
     flex-flow: column;
-    padding: 1rem;
+    padding: 1rem 0 0 0;
     background-color: white;
+    background-color: #FAFAFA;
+    transition: 0.3s;
+
+}
+
+article:hover {
+    transform: scale(1.2)
+}
+
+.product_body {
+    padding: 0 2rem 0 2rem;
+
 }
 
 .imagecontainer {
@@ -75,12 +87,12 @@ article {
     position: relative;
 
 */
-    margin: 50px auto;
+    margin: 3em auto;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     overflow: hidden;
-    border: 10px solid #EBEAEA;
+    border: 10px solid white;
     transform: rotate(45deg);
     position: relative;
     transform-origin: 50% 50%;
@@ -132,7 +144,11 @@ article > p {
 main {
     font-family: Avenir, Roboto, Helvetica, san-serif;
     font-size: 80%;
-    background-color: #FAFAFA;
+
+    max-width: none;
+    margin: 0;
+    padding: 2rem;
+    background-color: white;
 }
 
 article {
@@ -143,12 +159,13 @@ article {
 article > button {
     margin-top: auto;
     /* to push it to the bottom of the box & margin-top: auto takes the available space */
-    background: #F2A341;
+    background: #953733;
     color: white;
     padding: 0.3rem;
     border: none;
-    border-radius: 1rem;
+    /*    border-radius: 1rem;*/
     font-size: 1rem;
+    cursor: pointer;
 }
 
 
@@ -177,7 +194,8 @@ article > button {
 
 
 button.active {
-    background-color: hotpink;
+    background-color: #6F2421;
+    color: white;
 }
 
 
@@ -196,4 +214,14 @@ button.active {
     border: 1px solid #7c1f17;
     margin: 1em;
     padding: 2em;
+}
+
+footer {
+    background-color: #953733;
+    height: 5vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
