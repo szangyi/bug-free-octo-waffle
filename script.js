@@ -1,4 +1,3 @@
-
 //loop through products
 function dataReceived(products) {
     products.forEach(showProduct);
@@ -12,33 +11,37 @@ function showProduct(myProduct) {
     const temp = document.querySelector("#productTemplate").content;
     //clone the template
     const myCopy = temp.cloneNode(true);
+
+    const img = myCopy.querySelector(".product_image");
+    img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`)
+
     //fill out template
     myCopy.querySelector(".data_name").textContent = myProduct.name;
     myCopy.querySelector(".data_shortdescription").textContent = myProduct.shortdescription;
     myCopy.querySelector(".data_discount").textContent = `-${myProduct.discount}%`;
     myCopy.querySelector(".data_price").textContent = `${myProduct.price}kr`;
-    //append
-    const parentElem = document.querySelector("section#starter");
+
+
+    const parentElem = document.querySelector("section#" + myProduct.category);
+
+
 
 
     if (!myProduct.discount) {
         //not discount
-        console.log("nodiscount");
         myCopy.querySelector(".data_discount").classList.toggle("hidden")
     }
     if (myProduct.vegetarian) {
-        myCopy.querySelector(".infoveg").classList.remove("hidden")
+        myCopy.querySelector(".veg").classList.remove("hidden")
     };
 
     if (myProduct.soldout) {
         myCopy.querySelector(".product").classList.add("soldout")
     }
 
-    //setup classes for filtering
-    //1.find article
+    //FILTERING
+    //VEGGIE
     const article = myCopy.querySelector("article")
-
-    //2.add classes
     if (myProduct.vegetarian) {
         article.classList.add("vegetarian")
     }
@@ -46,20 +49,83 @@ function showProduct(myProduct) {
     const veggiefilter = document.querySelector("#veggiefilter");
     veggiefilter.addEventListener("click", veggieFilterClicked);
 
-
     function veggieFilterClicked() {
         //select all non veggie
-        const articles = document.querySelectorAll("article:not(.vegetarian)");
-        console.log(articles);
         veggiefilter.classList.toggle("active");
+        const articles = document.querySelectorAll("article:not(.vegetarian)");
+        articles.forEach(elem => {
+            elem.classList.toggle("hidden")
+        })
     }
 
 
+    //ALCOHOL
+    if (myProduct.alcohol) {
+        article.classList.add("alcoholic")
+    }
+    const alcoholfilter = document.querySelector("#alcoholfilter");
+    alcoholfilter.addEventListener("click", alcoholFilterClicked);
+
+    function alcoholFilterClicked() {
+        alcoholfilter.classList.toggle("active")
+        const articles = document.querySelectorAll("article.alcoholic");
+        articles.forEach(elem => {
+            elem.classList.toggle("hidden")
+        })
+    }
+
+    //DISCOUNT
+    if (!myProduct.discount) {
+        article.classList.add("nondiscount")
+    }
+    const discountfilter = document.querySelector("#discountfilter");
+    discountfilter.addEventListener("click", discountFilterClicked);
+
+    function discountFilterClicked() {
+        discountfilter.classList.toggle("active")
+        const articles = document.querySelectorAll("article.nondiscount");
+        articles.forEach(elem => {
+            elem.classList.toggle("hidden")
+        })
+    }
+
+    //SOLDOUT - AVAILABLE
+    if (myProduct.soldout) {
+        article.classList.add("soldout")
+    }
+    const soldoutfilter = document.querySelector("#soldoutfilter");
+    soldoutfilter.addEventListener("click", soldoutFilterClicked);
+
+    function soldoutFilterClicked() {
+        soldoutfilter.classList.toggle("active")
+        const articles = document.querySelectorAll("article.soldout");
+        articles.forEach(elem => {
+            elem.classList.toggle("hidden")
+        })
+    }
+
+    //FILTERING end
 
 
 
+    myCopy.querySelector("button").addEventListener("click", () => {
+        fetch(`https://kea-alt-del.dk/t5/api/product?id=` + myProduct.id)
+            .then(res => res.json())
+            .then(showDetails);
+    });
+
+
+
+    //------------------ide tehetek cuccokat amiket a DOM-hoz akarok kotni-------------
 
     parentElem.appendChild(myCopy);
+}
+
+function showDetails(data) {
+  modal.querySelector(".modal-name").textContent = data.name;
+  modal.querySelector(".modal-description").textContent = data.longdescription;
+  //  //...
+  modal.classList.remove("hidden");
 }
 
 
@@ -72,18 +138,17 @@ function init() {
 init();
 
 function categoriesReceived(cats) {
-       createNavigation(cats);
+    createNavigation(cats);
     createSections(cats);
     //fetch data
 
-fetch("https://kea-alt-del.dk/t5/api/productlist")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        //        console.log(data)
-        dataReceived(data);
-    })
+    fetch("https://kea-alt-del.dk/t5/api/productlist")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            dataReceived(data);
+        })
 
 }
 
@@ -108,3 +173,14 @@ function createNavigation(categories) {
         document.querySelector("#nav").appendChild(a);
     })
 }
+
+//-------------------------------------MODAL-------------------------------------
+
+//close the modal when clicked
+const modal = document.querySelector(".modal-background");
+modal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+
+
+//once we have our data, ....
