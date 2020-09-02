@@ -5,25 +5,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A table a la Alex</title>
+    <title>Restaurant Petrograd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="restaurantstyle.css">
-
 </head>
 
 <body>
 
     <header>
-        <div id="nav">
-
-        </div>
-
-        <div id="banner">
-
-        </div>
-
-
-
+        <div id="banner"></div>
+        <div id="nav"></div>
     </header>
+
     <details>
         <summary>Filters</summary>
 
@@ -36,7 +29,6 @@
 
     <main class="productlist">
         <section>
-            <h1></h1>
             <template id="productTemplate">
                 <article class="product">
                     <p class="veg hidden">vegetarian</p>
@@ -45,7 +37,9 @@
                     <p class="data_price"></p>
                     <p class="data_discount"> </p>
                     <p class="soldout hidden">SOLD OUT</p>
-                    <img class="product_image" src="https://kea-alt-del.dk/t5/site/imgs/small/rodbede-cabanossi-sm.jpg" alt="" />
+                    <div class="imagecontainer">
+                        <img class="product_image" src="https://kea-alt-del.dk/t5/site/imgs/small/rodbede-cabanossi-sm.jpg" alt="" />
+                    </div>
                     <button>DETAILS</button>
                 </article>
             </template>
@@ -64,6 +58,9 @@
     </div>
 
     <script src="script.js"></script>
-</body>
 
-</html>
+    <footer>
+        Copyright - Alexandra Meszaros
+    </footer>
+
+</body></html>

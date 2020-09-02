@@ -153,7 +153,6 @@ function categoriesReceived(cats) {
 }
 
 
-
 function createSections(categories) {
     categories.forEach(category => {
         const section = document.createElement("section");
@@ -174,7 +173,6 @@ function createNavigation(categories) {
     })
 }
 
-//-------------------------------------MODAL-------------------------------------
 
 //close the modal when clicked
 const modal = document.querySelector(".modal-background");
@@ -182,5 +180,3 @@ modal.addEventListener("click", () => {
     modal.classList.add("hidden");
 });
 
-
-//once we have our data, ....
