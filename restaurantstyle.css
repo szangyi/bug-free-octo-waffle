@@ -7,21 +7,15 @@
 
 
 
-@media only screen and (max-width: 600px) {}
-
-@media only screen and (min-width: 600px) {}
-
-
-@media only screen and (min-width: 768px) {}
-
 
 
 
 
 html {
-    scroll-behavior: smooth;
-    font-size: 3vw;
+    /*    scroll-behavior: smooth;*/
+    font-size: 100%;
 }
+
 
 header {
     margin: 0;
@@ -40,7 +34,7 @@ header {
 a {
     text-decoration: none;
     font-family: 'Lexend Peta';
-    font-size: 2.2vw;
+    font-size: calc(0.2rem + 1.5vw);
     color: white;
     text-transform: uppercase;
     transition: 0.3s;
@@ -60,9 +54,9 @@ a:hover {
 
 
 section {
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 article {
@@ -70,15 +64,13 @@ article {
     display: flex;
     flex-flow: column;
     background-color: white;
-
     transition: 0.3s;
-    /*    border: 1px solid #EBEAEA;*/
     border-radius: 0.2rem;
 }
 
 .product_body {
-    padding: 1rem 2rem 0 2rem;
-
+    padding: 1rem 1.5rem 0 1.5rem;
+  font-size: calc(0.5rem + 0.6vw);
 
 }
 
@@ -140,14 +132,12 @@ article:hover {
 
 h1 {
     font-family: 'Pathway Gothic One', sans-serif;
-    /*    display: block;*/
     grid-column: 1/-1;
     text-transform: uppercase;
     color: #953733;
-    /*    font-size: 5vw;*/
-    font-size: 200%;
     padding-top: 1em;
     margin-bottom: 0;
+    font-size: calc(1.2rem + 2vw);
 
 }
 
@@ -158,11 +148,11 @@ h2 {
     padding: 0;
     background-color: #953733;
     color: white;
-    font-size: 1.3vw;
+    font-size: calc(0.4rem + 1vw);
     align-items: center;
     justify-content: center;
     font-family: 'Open Sans Condensed';
-    margin-top: -5px;
+    margin-top: -6px;
 }
 
 article > ul {
@@ -188,8 +178,6 @@ main {
 
 }
 
-article {}
-
 article > button {
     margin-top: auto;
     /* to push it to the bottom of the box & margin-top: auto takes the available space */
@@ -197,14 +185,13 @@ article > button {
     color: white;
     padding: 0.3rem;
     border: none;
-    /*    border-radius: 1rem;*/
-    font-size: 1rem;
+    /*    font-size: 1rem;*/
     cursor: pointer;
 }
 
 
 .data_discount {
-    font-size: 1.5em;
+    /*    font-size: 1.5em;*/
     color: red;
     position: absolute;
     top: 0;
@@ -215,14 +202,14 @@ article > button {
 
 .data_price {
     display: flex;
-    font-size: 120%;
+    /*    font-size: 120%;*/
     justify-content: flex-end;
     margin: 0;
     margin-bottom: 1rem;
 }
 
 .data_shortdescription {
-    font-size: 1.3vw;
+    /*    font-size: 1.3vw;*/
 }
 
 h5 {
@@ -238,14 +225,26 @@ h5 {
     align-self: center;
 }
 
+.img {
+    display: flex;
+
+}
 
 .veg {
-
     background-image: url(imgs/veg.png);
     background-size: cover;
     width: 20px;
     height: 22px;
 }
+
+.alc {
+    background-image: url(imgs/alc.png);
+    background-size: cover;
+    width: 15px;
+    height: 32px;
+}
+
+.veg:hover {}
 
 
 .hidden {
@@ -272,13 +271,9 @@ button.active {
 }
 
 .modal-content {
-    /*    position: absolute;*/
     background-color: #fefefe;
-    /*    left: 13rem;*/
     padding: 1em 3em;
     margin: 2rem 10rem 0 10rem;
-    /*    width: 40rem;*/
-    /*    justify-content: center;*/
 }
 
 .modal-image {
@@ -335,4 +330,29 @@ footer {
     align-items: center;
     justify-content: center;
 
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px) {}
+
+
+
+@media only screen and (max-width: 767px) {
+    a {
+        /*        font-size: 0.8rem;*/
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    a {
+        /*        font-size: 0.6rem;*/
+    }
 }

@@ -20,7 +20,7 @@ function showProduct(myProduct) {
     myCopy.querySelector(".data_shortdescription").textContent = myProduct.shortdescription;
     myCopy.querySelector(".data_discount").textContent = ` -${myProduct.discount}%`;
     myCopy.querySelector(".data_price").textContent = `${myProduct.price}kr`;
-
+    myCopy.querySelector(".allergens").textContent = ` ${myProduct.allergens}`;
 
     const parentElem = document.querySelector("section#" + myProduct.category);
 
@@ -34,19 +34,19 @@ function showProduct(myProduct) {
 
     //------calculating------
     if (myProduct.discount) {
-        const productBody = myCopy.querySelector (".product_body");
+        //        const productBody = myCopy.querySelector(".product_body");
         myCopy.querySelector(".data_price").style.textDecoration = "line-through";
         const discountedPrice = document.createElement("h5");
 
         const price = myProduct.price;
         const discount = myProduct.discount;
-        const reduction = price * (discount/100);
+        const reduction = price * (discount / 100);
 
         discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
 
         const parentElem = myCopy.querySelector(".product_body");
         parentElem.appendChild(discountedPrice);
-//        parentElem.appendChild(myCopy);
+        //        parentElem.appendChild(myCopy);
 
 
     }
@@ -55,6 +55,12 @@ function showProduct(myProduct) {
     if (myProduct.vegetarian) {
         myCopy.querySelector(".veg").classList.remove("hidden")
     };
+
+    if (myProduct.alcohol) {
+        myCopy.querySelector(".alc").classList.remove("hidden")
+    };
+
+    //    if (myProduct.allergens)
 
     if (myProduct.soldout) {
         myCopy.querySelector(".product").classList.add("soldout")
@@ -143,7 +149,7 @@ function showProduct(myProduct) {
 }
 
 function showDetails(data) {
-
+    console.log(data)
     const img = modal.querySelector(".modal-image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/small/${data.image}-sm.jpg`)
 
