@@ -18,7 +18,7 @@ function showProduct(myProduct) {
     //fill out template
     myCopy.querySelector(".data_name").textContent = myProduct.name;
     myCopy.querySelector(".data_shortdescription").textContent = myProduct.shortdescription;
-    myCopy.querySelector(".data_discount").textContent = `-${myProduct.discount}%`;
+    myCopy.querySelector(".data_discount").textContent = ` -${myProduct.discount}%`;
     myCopy.querySelector(".data_price").textContent = `${myProduct.price}kr`;
 
 
@@ -31,6 +31,27 @@ function showProduct(myProduct) {
         //not discount
         myCopy.querySelector(".data_discount").classList.toggle("hidden")
     }
+
+    //------calculating------
+    if (myProduct.discount) {
+        const productBody = myCopy.querySelector (".product_body");
+        myCopy.querySelector(".data_price").style.textDecoration = "line-through";
+        const discountedPrice = document.createElement("h5");
+
+        const price = myProduct.price;
+        const discount = myProduct.discount;
+        const reduction = price * (discount/100);
+
+        discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
+
+        const parentElem = myCopy.querySelector(".product_body");
+        parentElem.appendChild(discountedPrice);
+//        parentElem.appendChild(myCopy);
+
+
+    }
+
+
     if (myProduct.vegetarian) {
         myCopy.querySelector(".veg").classList.remove("hidden")
     };
@@ -129,7 +150,7 @@ function showDetails(data) {
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-price").textContent = `${data.price}kr`;
-//    modal.querySelector("img").textContent = data.longdescription;
+    //    modal.querySelector("img").textContent = data.longdescription;
     //  //...
 
 

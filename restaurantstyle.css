@@ -4,8 +4,23 @@
     box-sizing: border-box;
 }
 
+
+
+
+@media only screen and (max-width: 600px) {}
+
+@media only screen and (min-width: 600px) {}
+
+
+@media only screen and (min-width: 768px) {}
+
+
+
+
+
 html {
-    /*    scroll-behavior: smooth;*/
+    scroll-behavior: smooth;
+    font-size: 3vw;
 }
 
 header {
@@ -25,14 +40,14 @@ header {
 a {
     text-decoration: none;
     font-family: 'Lexend Peta';
-    font-size: 1.2em;
+    font-size: 2.2vw;
     color: white;
     text-transform: uppercase;
     transition: 0.3s;
 }
 
 a:hover {
-   transform: scale(1.3)
+    transform: scale(1.3)
 }
 
 #banner {
@@ -43,18 +58,11 @@ a:hover {
 
 }
 
-body {
-    /*    padding: 2rem;*/
-}
-
-
-main {}
-
 
 section {
     grid-gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 }
 
 article {
@@ -62,9 +70,16 @@ article {
     display: flex;
     flex-flow: column;
     background-color: white;
-    background-color: #FAFAFA;
+
     transition: 0.3s;
-padding: 1rem 2rem 0 2rem;
+    /*    border: 1px solid #EBEAEA;*/
+    border-radius: 0.2rem;
+}
+
+.product_body {
+    padding: 1rem 2rem 0 2rem;
+
+
 }
 
 article:hover {
@@ -73,15 +88,19 @@ article:hover {
 
 
 .imagecontainer {
+
+    /*    transform: rotate(45deg);*/
     /*
-    transform: rotate(45deg);
-    width: 150px;
+    width: 100%;
     height: 150px;
-    overflow: hidden;
-    display: block;
+*/
+
+
     position: relative;
 
-*/
+
+
+    /*
     margin: 3em auto;
     display: block;
     width: 120px;
@@ -91,10 +110,15 @@ article:hover {
     transform: rotate(45deg);
     position: relative;
     transform-origin: 50% 50%;
+*/
 }
 
 
 .imagecontainer img {
+
+    max-width: 100%;
+    height: auto;
+    order: 2;
 
     /*
     transform: rotate(-45deg);
@@ -104,11 +128,13 @@ article:hover {
     top: -200px;
     left: -200px;
 */
+    /*
     transform-origin: 50% 50%;
     transform: rotate(-45deg);
     position: absolute;
     top: -31px;
     left: -390px;
+*/
 
 }
 
@@ -118,14 +144,25 @@ h1 {
     grid-column: 1/-1;
     text-transform: uppercase;
     color: #953733;
-    font-size: 2em;
+    /*    font-size: 5vw;*/
+    font-size: 200%;
     padding-top: 1em;
     margin-bottom: 0;
 
 }
 
-article > h2 {
-    margin: 1rem 1rem 0;
+h2 {
+    height: 5vw;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #953733;
+    color: white;
+    font-size: 1.3vw;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans Condensed';
+    margin-top: -5px;
 }
 
 article > ul {
@@ -136,20 +173,22 @@ article > p {
     margin: 0.25em 1rem 1rem;
 }
 
+body {
+    background-color: #F7F0E7;
+    margin: 0;
+    padding: 0;
+}
+
 main {
     font-family: Avenir, Roboto, Helvetica, san-serif;
-    font-size: 80%;
-
+    /*    font-size: 80%;*/
     max-width: none;
     margin: 0;
     padding: 2rem;
-    background-color: white;
+
 }
 
-article {
-    border: 1px solid #EBEAEA;
-    border-radius: 0.2rem;
-}
+article {}
 
 article > button {
     margin-top: auto;
@@ -167,6 +206,31 @@ article > button {
 .data_discount {
     font-size: 1.5em;
     color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    background-color: white;
+}
+
+.data_price {
+    display: flex;
+    font-size: 120%;
+    justify-content: flex-end;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.data_shortdescription {
+    font-size: 1.3vw;
+}
+
+h5 {
+    display: flex;
+    font-size: 150%;
+    margin: 0;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
 }
 
 .soldout {
@@ -176,11 +240,13 @@ article > button {
 
 
 .veg {
-    color: green;
-    font-size: 1.5em;
-    order: -2;
-    align-self: center;
+
+    background-image: url(imgs/veg.png);
+    background-size: cover;
+    width: 20px;
+    height: 22px;
 }
+
 
 .hidden {
     /*    visibility: hidden;*/
@@ -202,15 +268,24 @@ button.active {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-/*    transition: 0.2s;*/
+
 }
 
 .modal-content {
-
+    /*    position: absolute;*/
     background-color: #fefefe;
-    margin: 10em;
-    padding: 2em;
+    /*    left: 13rem;*/
+    padding: 1em 3em;
+    margin: 2rem 10rem 0 10rem;
+    /*    width: 40rem;*/
+    /*    justify-content: center;*/
 }
+
+.modal-image {
+    width: 20rem;
+    height: 100%;
+}
+
 
 .relaxin {
     animation: relaxin 0.3s;
