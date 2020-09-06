@@ -61,7 +61,7 @@ function showProduct(myProduct) {
     //    if (myProduct.allergens)
 
     if (myProduct.soldout) {
-        myCopy.querySelector(".product").classList.add("soldout")
+        myCopy.querySelector(".product").classList.add("soldout");
     }
 
     //FILTERING
@@ -151,34 +151,32 @@ function showProduct(myProduct) {
 }
 
 function showDetails(data) {
-    console.log(data)
+    console.log(data);
     const img = modal.querySelector(".modal-image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/small/${data.image}-sm.jpg`)
 
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-description").textContent = data.longdescription;
-    modal.querySelector(".modal-price").textContent = `${data.price}kr`;
-    modal.querySelector(".veg").classList.remove("hidden");
+    //    modal.querySelector(".modal-price").textContent = `${data.price}kr`;
+    modal.querySelector(".vegmodal").classList.remove("hidden");
     //    modal.querySelector(".alc").classList.remove("hidden");
 
+
     if (data.alcohol) {
-        modal.querySelector(".alc").classList.remove("hidden")
+        modal.querySelector(".alcmodal").classList.remove("hidden")
     };
 
     if (data.vegetarian) {
-        modal.querySelector(".veg").classList.remove("hidden")
+        modal.querySelector(".vegmodal").classList.remove("hidden")
     };
 
-    if (data.allergens) {
-        modal.querySelector(".allergens").textContent = `Allergens: ${data.allergens}`;
-
+    if (data.soldout) {
+        modal.querySelector(".modal-content").style.filter = "grayscale(100)";
+        modal.querySelector(".soldouttext").classList.remove("hidden");
     }
 
-//     if (data.allergens) {
-//        modal.querySelector(".allergens").textContent = `Allergens: ${data.allergens}`;
-//
-//    }
 
+    modal.querySelector(".allergens").textContent = `Allergens: ${data.allergens}`;
 
     modal.classList.remove("hidden");
     //    modal.classList.remove("relaxout");
@@ -237,6 +235,10 @@ function createNavigation(categories) {
 const modal = document.querySelector(".modal-background");
 modal.addEventListener("click", () => {
     modal.classList.add("hidden");
+    modal.querySelector(".vegmodal").classList.add("hidden");
+    modal.querySelector(".alcmodal").classList.add("hidden");
+    modal.querySelector(".soldouttext").classList.add("hidden");
+     modal.querySelector(".modal-content").style.filter = "grayscale(0)";
     //    modal.classList.remove("relaxin");
     //    modal.classList.add("relaxout");
     //    modal.addEventListener("animationend", hideBackground);

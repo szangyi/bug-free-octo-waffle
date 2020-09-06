@@ -70,7 +70,8 @@ article {
 
 .product_body {
     padding: 1rem 1.5rem 0 1.5rem;
-  font-size: calc(0.5rem + 0.6vw);
+    font-size: calc(0.5rem + 0.6vw);
+    font-family: 'Avenir'
 
 }
 
@@ -141,7 +142,8 @@ h1 {
 
 }
 
-h2 {
+h2,
+h3 {
     height: 5vw;
     display: flex;
     margin: 0;
@@ -153,6 +155,16 @@ h2 {
     justify-content: center;
     font-family: 'Open Sans Condensed';
     margin-top: -6px;
+}
+
+
+
+.modal-header {
+    background-color: #953733;
+    color: white;
+    font-size: calc(0.4rem + 1vw);
+    align-items: center;
+    justify-content: center;
 }
 
 article > ul {
@@ -191,7 +203,7 @@ article > button {
 
 
 .data_discount {
-    /*    font-size: 1.5em;*/
+    font-size: calc(1em + 0.5vw);
     color: red;
     position: absolute;
     top: 0;
@@ -202,7 +214,7 @@ article > button {
 
 .data_price {
     display: flex;
-    /*    font-size: 120%;*/
+    font-size: calc(1em + 0.3vw);
     justify-content: flex-end;
     margin: 0;
     margin-bottom: 1rem;
@@ -214,7 +226,7 @@ article > button {
 
 h5 {
     display: flex;
-    font-size: 150%;
+    font-size: calc(1em + 1vw);
     margin: 0;
     margin-bottom: 1rem;
     justify-content: flex-end;
@@ -225,16 +237,67 @@ h5 {
     align-self: center;
 }
 
+.soldouttext {
+    background-color: #953733;
+    display: flex;
+    justify-content: center;
+    font-size: 2vw;
+}
+
 .img {
     display: flex;
 
 }
 
+
 .veg {
     background-image: url(imgs/veg.png);
     background-size: cover;
-    width: 20px;
-    height: 22px;
+    width: 27px;
+    height: 29px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+imgs {
+    display: flex;
+}
+
+h3 {
+    font-size: calc(1rem + 1vw);
+
+}
+
+
+.vegmodal {
+    background-image: url(imgs/veg.png);
+    background-size: cover;
+    width: 27px;
+    height: 29px;
+    float: left;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+
+}
+
+.alcmodal {
+    background-image: url(imgs/alc.png);
+    background-size: cover;
+    width: 15px;
+    height: 32px;
+    display: flex;
+    margin-right: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.allergens {
+    position: relative;
+    clear: both;
 }
 
 .alc {
@@ -245,21 +308,21 @@ h5 {
 }
 
 .lac {
-      background-image: url(imgs/lac.png);
+    background-image: url(imgs/lac.png);
     background-size: cover;
     width: 15px;
     height: 35px;
 }
 
 .nut {
-      background-image: url(imgs/nut.png);
+    background-image: url(imgs/nut.png);
     background-size: cover;
     width: 15px;
     height: 35px;
 }
 
 .kart {
-      background-image: url(imgs/kart.png);
+    background-image: url(imgs/kart.png);
     background-size: cover;
     width: 40px;
     height: 35px;
@@ -290,13 +353,23 @@ button.active {
 
 .modal-content {
     background-color: #fefefe;
-    padding: 1em 3em;
-    margin: 2rem 10rem 0 10rem;
+    padding-bottom: 5em;
+    margin: 3rem 14rem 0 14rem;
+}
+
+.modal-name {
+    display: flex;
+    justify-content: center;
+
 }
 
 .modal-image {
-    width: 20rem;
-    height: 100%;
+    display: block;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
 }
 
 
