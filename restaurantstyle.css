@@ -244,8 +244,26 @@ h5 {
     height: 32px;
 }
 
-.veg:hover {}
+.lac {
+      background-image: url(imgs/lac.png);
+    background-size: cover;
+    width: 15px;
+    height: 35px;
+}
 
+.nut {
+      background-image: url(imgs/nut.png);
+    background-size: cover;
+    width: 15px;
+    height: 35px;
+}
+
+.kart {
+      background-image: url(imgs/kart.png);
+    background-size: cover;
+    width: 40px;
+    height: 35px;
+}
 
 .hidden {
     /*    visibility: hidden;*/

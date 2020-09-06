@@ -20,7 +20,7 @@ function showProduct(myProduct) {
     myCopy.querySelector(".data_shortdescription").textContent = myProduct.shortdescription;
     myCopy.querySelector(".data_discount").textContent = ` -${myProduct.discount}%`;
     myCopy.querySelector(".data_price").textContent = `${myProduct.price}kr`;
-    myCopy.querySelector(".allergens").textContent = ` ${myProduct.allergens}`;
+
 
     const parentElem = document.querySelector("section#" + myProduct.category);
 
@@ -56,9 +56,7 @@ function showProduct(myProduct) {
         myCopy.querySelector(".veg").classList.remove("hidden")
     };
 
-    if (myProduct.alcohol) {
-        myCopy.querySelector(".alc").classList.remove("hidden")
-    };
+
 
     //    if (myProduct.allergens)
 
@@ -100,6 +98,10 @@ function showProduct(myProduct) {
             elem.classList.toggle("hidden")
         })
     }
+
+    if (myProduct.alcohol) {
+        myCopy.querySelector(".alcoholic").classList.remove("hidden")
+    };
 
     //DISCOUNT
     if (!myProduct.discount) {
@@ -156,8 +158,26 @@ function showDetails(data) {
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-description").textContent = data.longdescription;
     modal.querySelector(".modal-price").textContent = `${data.price}kr`;
-    //    modal.querySelector("img").textContent = data.longdescription;
-    //  //...
+    modal.querySelector(".veg").classList.remove("hidden");
+    //    modal.querySelector(".alc").classList.remove("hidden");
+
+    if (data.alcohol) {
+        modal.querySelector(".alc").classList.remove("hidden")
+    };
+
+    if (data.vegetarian) {
+        modal.querySelector(".veg").classList.remove("hidden")
+    };
+
+    if (data.allergens) {
+        modal.querySelector(".allergens").textContent = `Allergens: ${data.allergens}`;
+
+    }
+
+//     if (data.allergens) {
+//        modal.querySelector(".allergens").textContent = `Allergens: ${data.allergens}`;
+//
+//    }
 
 
     modal.classList.remove("hidden");
