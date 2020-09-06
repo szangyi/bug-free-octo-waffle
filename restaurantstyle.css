@@ -368,7 +368,7 @@ button.active {
     background-size: contain;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width:30%;
     height: auto;
 }
 
